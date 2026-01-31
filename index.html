@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga Glamour - Mobile Legends eSports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #9d4edd;
+            --secondary: #ff2e63;
+            --dark: #0f0c29;
+            --darker: #0a081f;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .font-heading {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .glamour-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .dark-gradient {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+        }
+        
+        .header-bg {
+            background: linear-gradient(rgba(15, 12, 41, 0.9), rgba(15, 12, 41, 0.95)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.2);
+        }
+        
+        .champion-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .champion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(255, 46, 99, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .champion-card:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-active {
+            color: #ff2e63;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(157, 78, 221, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(157, 78, 221, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(157, 78, 221, 0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sponsor-logo {
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+            opacity: 0.8;
+        }
+        
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="dark-gradient">
+    <!-- Navegación -->
+    <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-purple-900/30">
+        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
+                        <i class="fas fa-crown text-white text-sm md:text-base"></i>
+                    </div>
+                    <a href="index.html" class="font-heading text-xl md:text-2xl font-bold text-white">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></a>
+                </div>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link text-white hover:text-purple-300 transition nav-active">Inicio</a>
+                    <a href="#about" class="nav-link text-white hover:text-purple-300 transition">Información</a>
+                    <a href="#champions" class="nav-link text-white hover:text-purple-300 transition">Campeones</a>
+                    <a href="#sponsors" class="nav-link text-white hover:text-purple-300 transition">Sponsors</a>
+                    <a href="divisions.html" class="nav-link text-white hover:text-purple-300 transition">Divisiones</a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-white hover:text-purple-300 transition nav-active">Inicio</a>
+                    <a href="#about" class="text-white hover:text-purple-300 transition">Información</a>
+                    <a href="#champions" class="text-white hover:text-purple-300 transition">Campeones</a>
+                    <a href="#sponsors" class="text-white hover:text-purple-300 transition">Sponsors</a>
+                    <a href="divisions.html" class="text-white hover:text-purple-300 transition">Divisiones</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Principal -->
+    <header class="header-bg py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <div class="inline-block px-4 py-2 rounded-full bg-purple-900/30 border border-purple-700/50 mb-6">
+                    <span class="text-sm font-semibold text-purple-300">eSports Argentina</span>
+                </div>
+                
+                <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Liga</span> 
+                    <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto">
+                    La competición más prestigiosa de Mobile Legends Bang Bang en Argentina. Donde los mejores equipos y jugadores luchan por la gloria y el reconocimiento.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="divisions.html" class="px-6 md:px-8 py-3 md:py-4 rounded-lg glamour-gradient text-white font-bold hover:shadow-lg hover:shadow-purple-900/50 transition-all duration-300 transform hover:-translate-y-1">
+                        Ver Divisiones <i class="ml-2 fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#champions" class="px-6 md:px-8 py-3 md:py-4 rounded-lg border border-purple-700 text-white font-bold hover:bg-purple-900/30 transition">
+                        Ver Campeones
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-down">
+            <a href="#about" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Información -->
+    <section id="about" class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+                    Sobre la <span class="glamour-gradient bg-clip-text text-transparent">Liga Glamour</span>
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-base md:text-lg">
+                    La Liga Glamour es la competición de más alto nivel de Mobile Legends Bang Bang en Argentina, donde equipos profesionales de todo el país compiten por el título de campeón y el reconocimiento de la comunidad.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-900/30 card-hover fade-in">
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full glamour-gradient flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-trophy text-white text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Competencia Élite</h3>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Solo los mejores equipos califican para participar en la Liga Glamour, garantizando partidos de la más alta calidad y estrategias innovadoras en cada encuentro.
+                    </p>
+                </div>
+                
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-900/30 card-hover fade-in">
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-users text-white text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Comunidad Activa</h3>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Miles de fanáticos siguen cada partido, creando una comunidad apasionada que apoya a sus equipos favoritos y celebra el crecimiento del eSports en Argentina.
+                    </p>
+                </div>
+                
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-900/30 card-hover fade-in">
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-medal text-white text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Reconocimiento Nacional</h3>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Los campeones de la Liga Glamour obtienen reconocimiento nacional, contratos con sponsors y la oportunidad de representar a Argentina en torneos internacionales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Campeones -->
+    <section id="champions" class="py-16 md:py-20 bg-black/20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+                    <span class="glamour-gradient bg-clip-text text-transparent">Campeones</span> de la Liga
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-base md:text-lg">
+                    Conoce a los equipos que han levantado el trofeo de la Liga Glamour a lo largo de las temporadas.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Campeón 1 -->
+                <div class="champion-card bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-purple-900/30 card-hover fade-in">
+                    <div class="relative h-56 md:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team Phoenix" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-yellow-500 text-black font-bold">
+                            S5
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Team Phoenix</h3>
+                        <p class="text-gray-300 mb-4">Campeones de la Temporada 5</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Capitán">
+                            </div>
+                            <div>
+                                <p class="font-semibold">Martín "Fénix" Rodríguez</p>
+                                <p class="text-sm text-gray-400">Capitán & Jungla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Campeón 2 -->
+                <div class="champion-card bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-purple-900/30 card-hover fade-in">
+                    <div class="relative h-56 md:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Shadow Legion" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gray-300 text-black font-bold">
+                            S4
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Shadow Legion</h3>
+                        <p class="text-gray-300 mb-4">Campeones de la Temporada 4</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Capitán">
+                            </div>
+                            <div>
+                                <p class="font-semibold">Lucas "Sombra" González</p>
+                                <p class="text-sm text-gray-400">Capitán & Mid Laner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Campeón 3 -->
+                <div class="champion-card bg-gradient-to-br from-gray-900 to-black rounded-xl overflow-hidden border border-purple-900/30 card-hover fade-in">
+                    <div class="relative h-56 md:h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Royal Esports" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-600 text-black font-bold">
+                            S3
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Royal Esports</h3>
+                        <p class="text-gray-300 mb-4">Campeones de la Temporada 3</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Capitán">
+                            </div>
+                            <div>
+                                <p class="font-semibold">Valentina "Reina" Fernández</p>
+                                <p class="text-sm text-gray-400">Capitán & Gold Laner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sponsors -->
+    <section id="sponsors" class="py-16 md:py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+                    Nuestros <span class="glamour-gradient bg-clip-text text-transparent">Sponsors</span>
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-base md:text-lg">
+                    Gracias al apoyo de nuestros sponsors, podemos mantener y hacer crecer la Liga Glamour, brindando la mejor experiencia competitiva para jugadores y espectadores.
+                </p>
+            </div>
+            
+            <!-- Sponsor Principal -->
+            <div class="mb-12 md:mb-16 fade-in">
+                <div class="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-xl p-6 md:p-8 border border-purple-700/50">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-6 md:mb-0 md:mr-8">
+                            <div class="inline-block px-4 py-2 rounded-full bg-purple-900/40 mb-4">
+                                <span class="text-sm font-semibold text-purple-300">Sponsor Principal</span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">FiruShop</h3>
+                            <p class="text-gray-300 mb-4">
+                                La tienda online líder en Argentina para gamers. Encuentra los mejores periféricos, hardware y accesorios gaming al mejor precio.
+                            </p>
+                            <a href="https://firushop.com.ar" target="_blank" class="inline-flex items-center text-purple-300 hover:text-white transition">
+                                Visitar sitio web <i class="ml-2 fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <div class="w-full md:w-64 h-32 flex items-center justify-center bg-white/5 rounded-xl p-4">
+                            <div class="text-center">
+                                <div class="text-4xl md:text-5xl font-bold mb-2 glamour-gradient bg-clip-text text-transparent">FiruShop</div>
+                                <p class="text-gray-400 text-sm">Tienda Oficial Gaming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Llamada a acción para sponsors -->
+            <div class="mt-12 md:mt-16 text-center fade-in">
+                <div class="bg-black/30 rounded-xl p-6 md:p-8 border border-purple-900/30 max-w-2xl mx-auto">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4">¿Querés ser sponsor?</h3>
+                    <p class="text-gray-300 mb-6">
+                        Únete a nuestra lista de sponsors exclusivos y conecta tu marca con la comunidad gamer más apasionada de Argentina.
+                    </p>
+                    <a href="mailto:sponsors@ligaglamour.com" class="inline-flex items-center px-6 py-3 rounded-lg border border-purple-700 text-white font-bold hover:bg-purple-900/30 transition">
+                        <i class="fas fa-envelope mr-2"></i> Contactar para sponsoreo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-purple-900/30">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
+                            <i class="fas fa-crown text-white text-sm md:text-base"></i>
+                        </div>
+                        <div class="font-heading text-xl md:text-2xl font-bold text-white">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></div>
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base">La competición de élite de Mobile Legends Bang Bang en Argentina</p>
+                </div>
+                
+                <div class="flex space-x-4 md:space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-twitter text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-instagram text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-youtube text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-twitch text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                        <i class="fab fa-discord text-lg md:text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-500 text-sm">&copy; 2023 Liga Glamour. Todos los derechos reservados.</p>
+                        <p class="text-gray-500 text-sm">Mobile Legends Bang Bang es una marca registrada de Moonton.</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition">Términos y Condiciones</a>
+                        <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition">Política de Privacidad</a>
+                        <a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Función para manejar el menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Función para actualizar el enlace activo en la navegación
+        function updateActiveNavLink() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 100;
+            
+            // Primero, quitar active de todos
+            navLinks.forEach(link => {
+                if (!link.getAttribute('href').includes('index.html') && !link.getAttribute('href').includes('divisions.html')) {
+                    link.classList.remove('nav-active');
+                }
+            });
+            
+            // Marcar el enlace de Inicio como activo por defecto
+            document.querySelector('a[href="index.html"]').classList.add('nav-active');
+            
+            // Verificar cada sección
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('nav-active');
+                            document.querySelector('a[href="index.html"]').classList.remove('nav-active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Navegación suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Cerrar menú móvil si está abierto
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Inicializar animaciones de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '1';
+            });
+            
+            // Manejar scroll para actualizar navegación activa
+            window.addEventListener('scroll', updateActiveNavLink);
+            
+            // Inicializar estado de navegación
+            updateActiveNavLink();
+        });
+    </script>
+</body>
+</html>
