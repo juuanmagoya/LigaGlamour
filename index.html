@@ -3,30 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liga Glamour - Mobile Legends eSports</title>
+    
+    <!-- SEO Meta Tags Optimizadas -->
+    <title>Liga Glamour Argentina | Mobile Legends Esports Profesional</title>
+    <meta name="description" content="La liga más prestigiosa de Mobile Legends Bang Bang en Argentina. Competición profesional, campeones, estadísticas y cobertura completa del mejor esports del país.">
+    <meta name="keywords" content="Liga Glamour, Mobile Legends Argentina, MLBB esports, torneo Mobile Legends, liga profesional MLBB, esports Argentina, campeonato MLBB">
+    <meta name="author" content="Liga Glamour">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:title" content="Liga Glamour Argentina - MLBB Esports Profesional">
+    <meta property="og:description" content="La competición de élite de Mobile Legends en Argentina. Sigue toda la acción, equipos y campeones.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Liga Glamour">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Liga Glamour Argentina">
+    <meta name="twitter:description" content="La liga profesional de Mobile Legends en Argentina">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Clash+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Variables de color profesionales */
         :root {
-            --primary: #9d4edd;
-            --secondary: #ff2e63;
-            --dark: #0f0c29;
-            --darker: #0a081f;
-            --light: #f8f9fa;
+            --primary: #9945ff;
+            --secondary: #00f5d0;
+            --accent: #ff2e7d;
+            --dark-900: #0a0615;
+            --dark-800: #120b1f;
+            --dark-700: #1a1029;
+            --glow: rgba(153, 69, 255, 0.4);
+            --glow-2: rgba(0, 245, 208, 0.3);
         }
-        
+
+        /* Estilos base mejorados */
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--darker);
-            color: var(--light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(ellipse at 50% 0%, #1a1029 0%, #0a0615 100%);
+            color: #ffffff;
             overflow-x: hidden;
+            min-height: 100vh;
             position: relative;
         }
-        
-        /* Fondo de toda la página con el logo - MÁS VISIBLE */
+
+        /* Fondo dinámico con partículas */
         body::before {
             content: '';
             position: fixed;
@@ -34,65 +59,161 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(rgba(15, 12, 41, 0.4), rgba(15, 12, 41, 0.6)), /* Gradiente más transparente */
-                url('img/imgLogoLiga.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -2;
-            opacity: 0.9; /* Aumenta la opacidad del logo */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(153, 69, 255, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 245, 208, 0.1) 0%, transparent 35%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 10px);
+            pointer-events: none;
+            z-index: -1;
         }
-        
-        /* Capa adicional más ligera */
+
+        /* Logo como elemento de fondo sutil */
         body::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(15, 12, 41, 0.3) 0%, rgba(10, 8, 31, 0.5) 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: url('img/imgLogoLiga.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.03;
+            pointer-events: none;
             z-index: -1;
+            filter: blur(2px);
         }
-        
+
+        /* Fuentes personalizadas */
         .font-heading {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
         }
         
-        .glamour-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .font-display {
+            font-family: 'Clash Display', sans-serif;
         }
-        
-        .dark-gradient {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+
+        /* Gradientes profesionales */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
         }
-        
-        /* Header sin fondo, solo con padding */
-        .header-bg {
-            padding-top: 80px;
-            padding-bottom: 80px;
-            position: relative;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
+
+        .gradient-secondary {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .gradient-sport {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
         }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.4);
+
+        /* Efectos de vidrio mejorados */
+        .glass-panel {
+            background: rgba(26, 16, 41, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(153, 69, 255, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
         }
-        
+
+        .glass-panel-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-hover:hover {
+            background: rgba(153, 69, 255, 0.15);
+            border-color: rgba(0, 245, 208, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px -15px var(--glow);
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(-15px) translateX(-5px); }
+            75% { transform: translateY(-5px) translateX(10px); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 30px var(--glow); }
+            50% { box-shadow: 0 0 60px var(--glow), 0 0 90px var(--glow-2); }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-float {
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-scale {
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Efectos de hover para tarjetas de campeones */
         .champion-card {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .champion-card::before {
             content: '';
             position: absolute;
@@ -100,302 +221,439 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(255, 46, 99, 0.3) 100%);
+            background: linear-gradient(145deg, rgba(153, 69, 255, 0.2), rgba(0, 245, 208, 0.2));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            pointer-events: none;
         }
-        
+
+        .champion-card:hover {
+            transform: scale(1.02) translateY(-10px);
+        }
+
         .champion-card:hover::before {
             opacity: 1;
         }
-        
-        .nav-active {
-            color: #ff2e63;
+
+        .champion-card img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
+
+        .champion-card:hover img {
+            transform: scale(1.1);
         }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(157, 78, 221, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(157, 78, 221, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(157, 78, 221, 0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .sponsor-logo {
-            transition: all 0.3s ease;
-            filter: grayscale(100%);
-            opacity: 0.8;
-        }
-        
-        .sponsor-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
-        }
-        
-        .scroll-down {
+
+        .champion-badge {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
+
+        .badge-1 {
+            background: linear-gradient(145deg, #ffd966, #ffb347);
+            color: #1a1029;
+            border: 2px solid #ffd700;
         }
-        
-        /* Efecto de vidrio para secciones - MÁS TRANSPARENTE */
-        .glass-section {
-            background: rgba(15, 12, 41, 0.5); /* Más transparente */
-            backdrop-filter: blur(8px); /* Menos blur para ver más el fondo */
-            border: 1px solid rgba(157, 78, 221, 0.3);
+
+        .badge-2 {
+            background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+            color: #1a1029;
+            border: 2px solid #ffffff;
         }
-        
-        /* Mejor contraste para las secciones */
-        section {
+
+        .badge-3 {
+            background: linear-gradient(145deg, #cd7f32, #b87333);
+            color: #ffffff;
+            border: 2px solid #ffd700;
+        }
+
+        /* Navegación mejorada */
+        .nav-link {
             position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Botones personalizados */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1;
         }
-        
-        /* Navbar más transparente para que se vea el fondo */
-        nav {
-            background: rgba(0, 0, 0, 0.5); /* Más transparente */
-            backdrop-filter: blur(10px);
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, var(--accent), var(--primary));
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
         }
-        
-        /* Ajustes para móviles */
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px var(--glow);
+        }
+
+        .btn-outline {
+            border: 2px solid transparent;
+            background: linear-gradient(var(--dark-800), var(--dark-800)) padding-box,
+                        linear-gradient(145deg, var(--primary), var(--secondary)) border-box;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px var(--glow-2);
+            background: linear-gradient(var(--dark-700), var(--dark-700)) padding-box,
+                        linear-gradient(145deg, var(--secondary), var(--primary)) border-box;
+        }
+
+        /* Sponsor cards */
+        .sponsor-card {
+            transition: all 0.4s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-900);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            body::before {
-                background-attachment: scroll;
-                opacity: 0.85; /* Un poco más opaco en móviles */
+            .btn-primary, .btn-outline {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
             }
             
-            .header-bg {
-                min-height: 50vh;
-                padding-top: 60px;
-                padding-bottom: 60px;
+            .champion-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
-            
-            .glass-section {
-                background: rgba(15, 12, 41, 0.6); /* Un poco menos transparente en móviles */
-            }
-        }
-        
-        /* Para textos sobre fondo oscuro - MEJOR CONTRASTE */
-        .text-overlay {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Para que las secciones no opaquen tanto el fondo */
-        .section-content {
-            background: rgba(15, 12, 41, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Navegación -->
-    <nav class="sticky top-0 z-50 border-b border-purple-900/30">
-        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
+    <!-- Partículas flotantes decorativas -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        <div class="absolute top-2/3 left-1/2 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-float" style="animation-delay: -6s;"></div>
+    </div>
+
+    <!-- Navegación premium -->
+    <nav class="sticky top-0 z-50 glass-panel border-t-0 border-x-0 border-b border-primary/20">
+        <div class="container mx-auto px-4 md:px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
-                        <i class="fas fa-crown text-white text-sm md:text-base"></i>
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="relative">
+                        <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fas fa-crown text-white text-xl"></i>
+                        </div>
+                        <div class="absolute -inset-1 gradient-primary rounded-xl opacity-0 group-hover:opacity-30 blur-lg transition-opacity"></div>
                     </div>
-                    <a href="index.html" class="font-heading text-xl md:text-2xl font-bold text-white text-overlay">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></a>
+                    <span class="font-display text-2xl font-bold">
+                        <span class="gradient-primary bg-clip-text text-transparent">Liga</span>
+                        <span class="text-white">Glamour</span>
+                    </span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white/80 hover:text-white active">Inicio</a>
+                    <a href="#about" class="nav-link text-white/80 hover:text-white">Información</a>
+                    <a href="#champions" class="nav-link text-white/80 hover:text-white">Campeones</a>
+                    <a href="#sponsors" class="nav-link text-white/80 hover:text-white">Sponsors</a>
+                    <a href="divisions.html" class="nav-link text-white/80 hover:text-white">Divisiones</a>
                 </div>
                 
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="nav-link text-white hover:text-purple-300 transition nav-active text-overlay">Inicio</a>
-                    <a href="#about" class="nav-link text-white hover:text-purple-300 transition text-overlay">Información</a>
-                    <a href="#champions" class="nav-link text-white hover:text-purple-300 transition text-overlay">Campeones</a>
-                    <a href="#sponsors" class="nav-link text-white hover:text-purple-300 transition text-overlay">Sponsors</a>
-                    <a href="divisions.html" class="nav-link text-white hover:text-purple-300 transition text-overlay">Divisiones</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden text-white">
+                <button id="mobile-menu-button" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
-            <!-- Menú móvil -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-white hover:text-purple-300 transition nav-active text-overlay">Inicio</a>
-                    <a href="#about" class="text-white hover:text-purple-300 transition text-overlay">Información</a>
-                    <a href="#champions" class="text-white hover:text-purple-300 transition text-overlay">Campeones</a>
-                    <a href="#sponsors" class="text-white hover:text-purple-300 transition text-overlay">Sponsors</a>
-                    <a href="divisions.html" class="text-white hover:text-purple-300 transition text-overlay">Divisiones</a>
+            <!-- Menú móvil premium -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <div class="glass-panel rounded-2xl p-4 space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-white bg-gradient-to-r from-primary/20 to-transparent rounded-xl font-semibold">Inicio</a>
+                    <a href="#about" class="block px-4 py-3 text-white/80 hover:bg-white/5 rounded-xl transition">Información</a>
+                    <a href="#champions" class="block px-4 py-3 text-white/80 hover:bg-white/5 rounded-xl transition">Campeones</a>
+                    <a href="#sponsors" class="block px-4 py-3 text-white/80 hover:bg-white/5 rounded-xl transition">Sponsors</a>
+                    <a href="divisions.html" class="block px-4 py-3 text-white/80 hover:bg-white/5 rounded-xl transition">Divisiones</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Header Principal -->
-    <header class="header-bg">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="max-w-3xl mx-auto text-center fade-in">
-                <div class="inline-block px-4 py-2 rounded-full bg-purple-900/40 border border-purple-700/50 mb-6">
-                    <span class="text-sm font-semibold text-purple-300 text-overlay">eSports Argentina</span>
+    <!-- Hero Section Premium -->
+    <header class="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark-900/50 to-dark-900"></div>
+        
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Badge de temporada -->
+                <div class="inline-flex items-center gap-2 glass-panel px-6 py-3 rounded-full mb-8 animate-slide-up">
+                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    <span class="text-sm font-semibold tracking-wider text-secondary">TEMPORADA 2026</span>
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 </div>
                 
-                <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6 text-overlay">
-                    <span class="text-white">Liga</span> 
-                    <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span>
+                <!-- Título principal -->
+                <h1 class="font-display text-6xl md:text-8xl font-bold mb-6 animate-slide-up" style="animation-delay: 0.1s;">
+                    <span class="gradient-primary bg-clip-text text-transparent">Liga</span>
+                    <span class="text-white"> Glamour</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-100 mb-8 md:mb-10 max-w-2xl mx-auto text-overlay">
-                    La competición más prestigiosa de Mobile Legends Bang Bang en Argentina. Donde los mejores equipos y jugadores luchan por la gloria y el reconocimiento.
+                <!-- Descripción -->
+                <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                    La competición más prestigiosa de <span class="text-secondary font-semibold">Mobile Legends</span> en Argentina. Donde los mejores equipos luchan por la gloria eterna.
                 </p>
                 
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="divisions.html" class="px-6 md:px-8 py-3 md:py-4 rounded-lg glamour-gradient text-white font-bold hover:shadow-lg hover:shadow-purple-900/50 transition-all duration-300 transform hover:-translate-y-1 text-overlay">
-                        Ver Divisiones <i class="ml-2 fas fa-arrow-right"></i>
+                <!-- Stats en tiempo real -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-12 animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="glass-panel rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">48</div>
+                        <div class="text-sm text-white/60">Equipos Activos</div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">4</div>
+                        <div class="text-sm text-white/60">Divisiones</div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">144+</div>
+                        <div class="text-sm text-white/60">Jugadores</div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold gradient-primary bg-clip-text text-transparent">$400K</div>
+                        <div class="text-sm text-white/60">En Premios</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s;">
+                    <a href="divisions.html" class="btn-primary group">
+                        <span>Ver Divisiones</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                     </a>
-                    <a href="#champions" class="px-6 md:px-8 py-3 md:py-4 rounded-lg border border-purple-700 text-white font-bold hover:bg-purple-900/40 transition text-overlay">
-                        Ver Campeones
+                    <a href="#champions" class="btn-outline group">
+                        <span>Ver Campeones</span>
+                        <i class="fas fa-trophy ml-2 group-hover:scale-110 transition-transform"></i>
                     </a>
                 </div>
             </div>
         </div>
         
-        <div class="scroll-down">
-            <a href="#about" class="text-white text-2xl text-overlay">
-                <i class="fas fa-chevron-down"></i>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/50 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
             </a>
         </div>
     </header>
 
-    <!-- Sección Información -->
-    <section id="about" class="py-16 md:py-20">
+    <!-- Sección About Premium -->
+    <section id="about" class="py-24 relative">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12 md:mb-16 fade-in">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-overlay">
-                    Sobre la <span class="glamour-gradient bg-clip-text text-transparent">Liga Glamour</span>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    <span class="gradient-primary bg-clip-text text-transparent">Sobre la</span>
+                    <span class="text-white"> Liga</span>
                 </h2>
-                <p class="text-gray-100 max-w-3xl mx-auto text-base md:text-lg text-overlay">
-                    La Liga Glamour es la competición de más alto nivel de Mobile Legends Bang Bang en Argentina, donde equipos profesionales de todo el país compiten por el título de campeón y el reconocimiento de la comunidad.
+                <p class="text-lg text-white/70 animate-slide-up" style="animation-delay: 0.1s;">
+                    La Liga Glamour es la máxima expresión de los esports de Mobile Legends en Argentina, donde la pasión, la estrategia y el talento se encuentran para crear espectáculo.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                <div class="glass-section rounded-xl p-6 md:p-8 card-hover fade-in">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full glamour-gradient flex items-center justify-center mb-4 md:mb-6">
-                        <i class="fas fa-trophy text-white text-xl md:text-2xl"></i>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel glass-panel-hover rounded-3xl p-8 animate-slide-left">
+                    <div class="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mb-6">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">Competencia Élite</h3>
-                    <p class="text-gray-100 text-sm md:text-base">
-                        Solo los mejores equipos califican para participar en la Liga Glamour, garantizando partidos de la más alta calidad y estrategias innovadoras en cada encuentro.
+                    <h3 class="text-2xl font-bold mb-4">Competencia Élite</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        Solo los mejores equipos del país califican para participar, garantizando partidos de máximo nivel y estrategias innovadoras.
                     </p>
                 </div>
                 
-                <div class="glass-section rounded-xl p-6 md:p-8 card-hover fade-in">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mb-4 md:mb-6">
-                        <i class="fas fa-users text-white text-xl md:text-2xl"></i>
+                <!-- Card 2 -->
+                <div class="glass-panel glass-panel-hover rounded-3xl p-8 animate-scale" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-secondary flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">Comunidad Activa</h3>
-                    <p class="text-gray-100 text-sm md:text-base">
-                        Miles de fanáticos siguen cada partido, creando una comunidad apasionada que apoya a sus equipos favoritos y celebra el crecimiento del eSports en Argentina.
+                    <h3 class="text-2xl font-bold mb-4">Comunidad Activa</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        cientos de fanáticos siguen cada partido, creando la comunidad de esports más apasionada de Argentina.
                     </p>
                 </div>
                 
-                <div class="glass-section rounded-xl p-6 md:p-8 card-hover fade-in">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center mb-4 md:mb-6">
-                        <i class="fas fa-medal text-white text-xl md:text-2xl"></i>
+                <!-- Card 3 -->
+                <div class="glass-panel glass-panel-hover rounded-3xl p-8 animate-slide-right" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center mb-6">
+                        <i class="fas fa-medal text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">Reconocimiento Nacional</h3>
-                    <p class="text-gray-100 text-sm md:text-base">
-                        Los campeones de la Liga Glamour obtienen reconocimiento nacional, contratos con sponsors y la oportunidad de representar a Argentina en torneos internacionales.
+                    
+                    <h3 class="text-2xl font-bold mb-4">Únicos</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        Centralizados en el Nivel, Show y Emoción Garantizados, somos la liga que ofrece una experiencia completa de esports de Mobile Legends en Argentina.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Campeones -->
-    <section id="champions" class="py-16 md:py-20">
+    <!-- Sección Campeones Premium -->
+    <section id="champions" class="py-24 relative">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12 md:mb-16 fade-in">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-overlay">
-                    <span class="glamour-gradient bg-clip-text text-transparent">Campeones</span> de la Liga
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    <span class="gradient-primary bg-clip-text text-transparent">Campeones</span>
+                    <span class="text-white"> Temporada</span>
                 </h2>
-                <p class="text-gray-100 max-w-3xl mx-auto text-base md:text-lg text-overlay">
-                    Conoce a los equipos que han levantado el trofeo de la Liga Glamour la Última Temporada
+                <p class="text-lg text-white/70 animate-slide-up" style="animation-delay: 0.1s;">
+                    Los equipos que demostraron su supremacía en cada división durante la última temporada.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Campeón 1 -->
-                <div class="champion-card glass-section overflow-hidden card-hover fade-in">
-                    <div class="relative h-56 md:h-64 overflow-hidden">
-                        <img src="img/imgashura.jpeg" alt="Team Ashura" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-yellow-500 text-black font-bold">
-                            1
-                        </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Campeón 1 - Primera División -->
+                <div class="champion-card glass-panel rounded-3xl overflow-hidden animate-slide-left">
+                    <div class="relative h-72">
+                        <img src="img/imgashura.jpeg" alt="Team Ashura Darkness - Campeones Primera División" class="w-full h-full object-cover">
+                        <div class="champion-badge badge-1">1</div>
+                        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark-900 to-transparent"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Ashura Darkness</h3>
-                        <p class="text-gray-100 mb-4">Campeones de la Primera División</p>
-                        <div class="flex items-center">
+                        <div class="inline-block px-4 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-3">
+                            Primera División
                         </div>
+                        <h3 class="text-2xl font-bold mb-2">Ashura Darkness</h3>
+                        <p class="text-white/60">Campeones absolutos de la máxima categoría</p>
                     </div>
                 </div>
                 
-                <!-- Campeón 2 -->
-                <div class="champion-card glass-section overflow-hidden card-hover fade-in">
-                    <div class="relative h-56 md:h-64 overflow-hidden">
-                        <img src="img/imgphanteonblack.jpeg" alt="Phanteons Black" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-gray-300 text-black font-bold">
-                            2
-                        </div>
+                <!-- Campeón 2 - Segunda División -->
+                <div class="champion-card glass-panel rounded-3xl overflow-hidden animate-scale" style="animation-delay: 0.1s;">
+                    <div class="relative h-72">
+                        <img src="img/imgphanteonblack.jpeg" alt="Phanteon's Black - Campeones Segunda División" class="w-full h-full object-cover">
+                        <div class="champion-badge badge-2">2</div>
+                        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark-900 to-transparent"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Phanteon´s Black</h3>
-                        <p class="text-gray-100 mb-4">Campeones de la Segunda División</p>
-                        <div class="flex items-center">
+                        <div class="inline-block px-4 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-semibold mb-3">
+                            Segunda División
                         </div>
+                        <h3 class="text-2xl font-bold mb-2">Phanteon's Black</h3>
+                        <p class="text-white/60">Campeones con ascenso a Primera</p>
                     </div>
                 </div>
                 
-                <!-- Campeón 3 -->
-                <div class="champion-card glass-section overflow-hidden card-hover fade-in">
-                    <div class="relative h-56 md:h-64 overflow-hidden">
-                        <img src="img/imgphanteonwrath.jpeg" alt="Phanteons wrath" class="w-full h-full object-cover">
-                        <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-600 text-black font-bold">
-                            3
-                        </div>
+                <!-- Campeón 3 - Tercera División -->
+                <div class="champion-card glass-panel rounded-3xl overflow-hidden animate-slide-right" style="animation-delay: 0.2s;">
+                    <div class="relative h-72">
+                        <img src="img/imgphanteonwrath.jpeg" alt="Phanteon's Wrath - Campeones Tercera División" class="w-full h-full object-cover">
+                        <div class="champion-badge badge-3">3</div>
+                        <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark-900 to-transparent"></div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Phanteon's Wrath</h3>
-                        <p class="text-gray-100 mb-4">Campeones de la Tercera División</p>
-                        <div class="flex items-center">
+                        <div class="inline-block px-4 py-1 rounded-full bg-amber-600/20 text-amber-500 text-sm font-semibold mb-3">
+                            Tercera División
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Phanteon's Wrath</h3>
+                        <p class="text-white/60">Campeones invictos de la temporada</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Campeón Especial 5vs5 -->
+            <div class="mt-20 animate-slide-up">
+                <div class="glass-panel rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 gradient-primary opacity-5"></div>
+                    <div class="relative z-10">
+                        <div class="inline-block px-6 py-2 rounded-full bg-yellow-500/20 text-yellow-400 text-sm font-semibold mb-6">
+                            <i class="fas fa-crown mr-2"></i>CAMPEÓN OFICIAL 5VS5
+                        </div>
+                        
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                            <div class="relative">
+                                <img 
+                                    src="img/logo octa white_.png" 
+                                    alt="Octa Gaming - Campeón Oficial 5vs5"
+                                    class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-3xl border-4 border-primary/30 animate-glow"
+                                >
+                                <div class="absolute -inset-4 gradient-primary rounded-full opacity-20 blur-2xl"></div>
+                            </div>
+                            
+                            <div class="text-left">
+                                <h3 class="font-display text-4xl md:text-6xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
+                                    Octa Gaming
+                                </h3>
+                                <p class="text-xl text-white/80 max-w-2xl">
+                                    Dominó la competencia 5vs5 con estrategia impecable, 
+                                    <span class="text-secondary font-semibold">invicto en toda la temporada</span>.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -403,201 +661,217 @@
         </div>
     </section>
 
-            
-        <section class="mt-16 fade-in my-20">
-            <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-purple-900/40 to-black border border-purple-700/40 rounded-2xl p-8 shadow-2xl">
-
-                <!-- Título -->
-                <h2 class="text-2xl md:text-4xl font-extrabold text-yellow-400 mb-6 tracking-wide uppercase">
-                    🏆 Campeón Oficial 5vs5
-                </h2>
-
-                <!-- Logo del equipo -->
-                <div class="flex justify-center mb-6">
-                    <div class="relative">
-                        <img 
-                            src="img/logo octa white_.png" 
-                            alt="Logo Octa Gaming"
-                            class="w-32 h-32 md:w-40 md:h-40 object-contain rounded-full border-4 border-purple-500 shadow-lg"
-                        >
-                        <div class="absolute inset-0 rounded-full border-4 border-yellow-400 animate-pulse opacity-40"></div>
-                    </div>
-                </div>
-
-                <!-- Nombre del equipo -->
-                <h3 class="text-3xl md:text-5xl font-extrabold text-purple-300 tracking-widest">
-                    Octa Gaming
-                </h3>
-
-                <!-- Descripción -->
-                <p class="mt-4 text-gray-300 text-base md:text-lg">
-                    Campeón del torneo <span class="text-white font-bold">5vs5</span> de la 
-                    <span class="text-purple-400 font-semibold">Liga Glamour</span>.  
-                    Dominando la competencia con estrategia, precisión y trabajo en equipo.
-                </p>
-
-            </div>
-        </section>
-    <!-- Sección Sponsors -->
-    <section id="sponsors" class="py-16 md:py-20">
+    <!-- Sección Sponsors Premium -->
+    <section id="sponsors" class="py-24 relative">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-12 md:mb-16 fade-in">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-overlay">
-                    Nuestros <span class="glamour-gradient bg-clip-text text-transparent">Sponsors</span>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    <span class="gradient-primary bg-clip-text text-transparent">Nuestros</span>
+                    <span class="text-white"> Sponsors</span>
                 </h2>
-                <p class="text-gray-100 max-w-3xl mx-auto text-base md:text-lg text-overlay">
-                    Gracias al apoyo de nuestros sponsors, podemos mantener y hacer crecer la Liga Glamour, brindando la mejor experiencia competitiva para jugadores y espectadores.
+                <p class="text-lg text-white/70 animate-slide-up" style="animation-delay: 0.1s;">
+                    Gracias al apoyo de nuestros partners, hacemos posible la mejor liga de Mobile Legends de Argentina.
                 </p>
             </div>
             
             <!-- Sponsor Principal -->
-            <div class="mb-12 md:mb-16 fade-in">
-                <div class="glass-section rounded-xl p-6 md:p-8 border border-purple-700/30">
-                    <div class="flex flex-col md:flex-row items-center justify-between">
-                        <div class="mb-6 md:mb-0 md:mr-8">
-                            <div class="inline-block px-4 py-2 rounded-full bg-purple-900/40 mb-4">
-                                <span class="text-sm font-semibold text-purple-300">Sponsor Principal</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-bold mb-2 text-white">BONOXS</h3>
-                            <p class="text-gray-100 mb-4">
-                                Ven a la mejor plataforma digital de comercio electrónico especializada en la industria del gaming que permite la compra de videojuegos, recargas de monedas virtuales y tarjetas de regalo (gift cards) utilizando métodos de pago locales en varios países de Latinoamérica.
-                            </p>
-                            <a href="https://bonoxs.com/ar?utm_source=influencers&utm_medium=influ-all&utm_campaign=influ-MLBBARG-mobile_legends-azulitos_arg-Ene2026" target="_blank" class="inline-flex items-center text-purple-300 hover:text-white transition">
-                                Visitar sitio web <i class="ml-2 fas fa-external-link-alt"></i>
-                            </a>
+            <div class="glass-panel rounded-3xl p-8 mb-12 sponsor-card animate-scale">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <div class="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-4">
+                            SPONSOR PRINCIPAL
                         </div>
-                        <div class="w-full md:w-64 h-32 flex items-center justify-center bg-white/10 rounded-xl p-4">
-                            <div class="text-center">
-                                <div class="text-4xl md:text-5xl font-bold mb-2 glamour-gradient bg-clip-text text-transparent">Bonoxs</div>
-                                <p class="text-gray-300 text-sm">Tienda Oficial Gaming</p>
-                            </div>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
+                            FiruShop
+                        </h3>
+                        <p class="text-white/70 mb-6 leading-relaxed">
+                            La plataforma digital líder en gaming de Argentina. Recargas de monedas virtuales y gift cards con métodos de pago locales.
+                        </p>
+                        <a href="https://firushop.com.ar/inicio" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors group">
+                            <span>Visitar sitio web</span>
+                            <i class="fas fa-external-link-alt group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="w-full md:w-72 h-40 glass-panel rounded-2xl flex items-center justify-center p-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold gradient-primary bg-clip-text text-transparent mb-2">FiruShop</div>
+                            <p class="text-sm text-white/50">Tienda Oficial Gaming</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Llamada a acción para sponsors -->
-            <div class="mt-12 md:mt-16 text-center fade-in">
-                <div class="glass-section rounded-xl p-6 md:p-8 border border-purple-900/30 max-w-2xl mx-auto">
-                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-white">¿Querés ser sponsor?</h3>
-                    <p class="text-gray-100 mb-6">
-                        Únete a nuestra lista de sponsors exclusivos y conecta tu marca con la comunidad gamer más apasionada de Argentina.
-                    </p>
-                    <a href="https://wa.me/5491158577736" target="_blank" class="inline-flex items-center px-6 py-3 rounded-lg border border-purple-700 text-white font-bold hover:bg-purple-900/40 transition">
-                        <i class="fab fa-whatsapp mr-2"></i> Contactar para sponsoreo
-                    </a>
+            <!-- CTA Sponsors -->
+            <div class="max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="glass-panel rounded-3xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">¿Querés ser sponsor?</h3>
+                        <p class="text-white/70 mb-6">
+                            Únete a nuestra lista de sponsors exclusivos y conecta tu marca con la comunidad gamer más apasionada de Argentina.
+                        </p>
+                        <a href="https://wa.me/5491158577736" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold hover:shadow-lg hover:shadow-green-500/30 transition-all group">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>Contactar para sponsoreo</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-purple-900/30 bg-black/50 backdrop-blur-sm">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
-                            <i class="fas fa-crown text-white text-sm md:text-base"></i>
+    <!-- Footer Premium -->
+    <footer class="glass-panel border-b-0 border-x-0 rounded-t-3xl mt-12">
+        <div class="container mx-auto px-4 md:px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center">
+                            <i class="fas fa-crown text-white text-xl"></i>
                         </div>
-                        <div class="font-heading text-xl md:text-2xl font-bold text-white text-overlay">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></div>
+                        <span class="font-display text-2xl font-bold">
+                            <span class="gradient-primary bg-clip-text text-transparent">Liga</span>
+                            <span class="text-white">Glamour</span>
+                        </span>
                     </div>
-                    <p class="text-gray-200 text-sm md:text-base">La competición de élite de Mobile Legends Bang Bang en Argentina</p>
+                    <p class="text-white/60 mb-4 max-w-md">
+                        La competición de élite de Mobile Legends en Argentina. Forjando campeones, creando leyendas.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/glamour.ml.oficial" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-instagram text-white/70 hover:text-white"></i>
+                        </a>
+                        <a href="https://youtube.com/@glamour.ml.oficial" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-youtube text-white/70 hover:text-white"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@liga.glamour" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-primary/20 flex items-center justify-center transition-all hover:scale-110">
+                            <i class="fab fa-tiktok text-white/70 hover:text-white"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="flex space-x-4 md:space-x-6">
-                    
-                    <a href="https://www.instagram.com/glamour.ml.oficial?igsh=OHV6dzY5OWtlcmE5" class="text-gray-200 hover:text-purple-400 transition">
-                        <i class="fab fa-instagram text-lg md:text-xl"></i>
-                    </a>
-                    <a href="https://youtube.com/@glamour.ml.oficial?si=-gNKW4xYPWTptzdo" class="text-gray-200 hover:text-purple-400 transition">
-                        <i class="fab fa-youtube text-lg md:text-xl"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@liga.glamour?_r=1&_t=ZS-94MGLq6AlV7" class="text-gray-200 hover:text-purple-400 transition">
-                        <i class="fab fa-tiktok text-lg md:text-xl"></i>
-                    </a>
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-white/60 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#about" class="text-white/60 hover:text-white transition">Información</a></li>
+                        <li><a href="#champions" class="text-white/60 hover:text-white transition">Campeones</a></li>
+                        <li><a href="divisions.html" class="text-white/60 hover:text-white transition">Divisiones</a></li>
+                    </ul>
                 </div>
+                
+                <!-- Legal -->
+                <!--
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Términos</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Privacidad</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div> -->
             </div>
             
-            
+            <div class="pt-8 border-t border-white/10 text-center">
+                <!--<p class="text-white/40 text-sm">
+                    &copy; 2024 Liga Glamour. Todos los derechos reservados. 
+                    Mobile Legends Bang Bang es una marca registrada de Moonton.
+                </p> -->
+            </div>
         </div>
     </footer>
 
+    <!-- Script mejorado -->
     <script>
-        // Función para manejar el menú móvil
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Función para actualizar el enlace activo en la navegación
-        function updateActiveNavLink() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            const scrollPos = window.scrollY + 100;
-            
-            // Primero, quitar active de todos
-            navLinks.forEach(link => {
-                if (!link.getAttribute('href').includes('index.html') && !link.getAttribute('href').includes('divisions.html')) {
-                    link.classList.remove('nav-active');
-                }
-            });
-            
-            // Marcar el enlace de Inicio como activo por defecto
-            document.querySelector('a[href="index.html"]').classList.add('nav-active');
-            
-            // Verificar cada sección
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('nav-active');
-                            document.querySelector('a[href="index.html"]').classList.remove('nav-active');
-                        }
-                    });
-                }
-            });
-        }
-
-        // Navegación suave para enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Cerrar menú móvil si está abierto
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Inicializar animaciones de entrada
         document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => {
-                el.style.opacity = '1';
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Smooth scroll para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Cerrar menú móvil si está abierto
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
             });
             
-            // Manejar scroll para actualizar navegación activa
+            // Navbar active state on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function updateActiveNavLink() {
+                const scrollY = window.scrollY;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
             window.addEventListener('scroll', updateActiveNavLink);
             
-            // Inicializar estado de navegación
+            // Scroll reveal animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.glass-panel, .champion-card, .sponsor-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+            
+            // Inicializar nav active state
             updateActiveNavLink();
         });
     </script>

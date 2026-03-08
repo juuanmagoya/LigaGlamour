@@ -3,197 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisiones - Liga Glamour</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SEO Meta Tags Optimizadas -->
+    <title>Divisiones Liga Glamour | Tabla de Posiciones MLBB Argentina</title>
+    <meta name="description" content="Tabla de posiciones oficial de la Liga Glamour de Mobile Legends. Cuatro divisiones competitivas: Primera, Segunda, Tercera y Cuarta División. Estadísticas en vivo.">
+    <meta name="keywords" content="Liga Glamour, Mobile Legends Argentina, tabla de posiciones, divisiones MLBB, ranking equipos, esports Argentina, torneo Mobile Legends">
+    <meta name="author" content="Liga Glamour">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Divisiones Liga Glamour - Tabla de Posiciones MLBB">
+    <meta property="og:description" content="Sigue la tabla de posiciones de las cuatro divisiones competitivas de la Liga Glamour. Estadísticas en tiempo real.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Liga Glamour">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Divisiones Liga Glamour | MLBB Argentina">
+    <meta name="twitter:description" content="Tabla de posiciones oficial de la Liga Glamour de Mobile Legends Bang Bang.">
+    
+    <!-- Preconexión para mejorar rendimiento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Carga diferida de recursos no críticos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Variables de color optimizadas */
         :root {
-            --primary: #9d4edd;
-            --secondary: #ff2e63;
-            --dark: #0f0c29;
-            --darker: #0a081f;
-            --light: #f8f9fa;
+            --primary-900: #0a0a1f;
+            --primary-800: #0f0f2a;
+            --primary-700: #1a1a3a;
+            --accent-1: #9d4edd;
+            --accent-2: #ff2e63;
+            --accent-3: #00d4ff;
+            --success: #00f5a0;
+            --warning: #ffb347;
+            --danger: #ff4d6d;
+            --glow-primary: rgba(157, 78, 221, 0.3);
+            --glow-secondary: rgba(255, 46, 99, 0.3);
         }
-        
+
+        /* Optimizaciones de rendimiento */
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--darker);
-            color: var(--light);
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--primary-900), var(--primary-800));
+            color: #fff;
+            min-height: 100vh;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
-        
+
         .font-heading {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
         }
-        
-        .glamour-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+
+        /* Gradientes optimizados (sin blur excesivo) */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
         }
-        
-        .dark-gradient {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+
+        .gradient-secondary {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-1));
         }
-        
+
+        .gradient-card {
+            background: linear-gradient(145deg, rgba(26, 26, 58, 0.9), rgba(10, 10, 31, 0.95));
+            backdrop-filter: blur(4px); /* Reducido para mejor rendimiento */
+        }
+
+        /* Efectos optimizados (usando transform en lugar de animaciones pesadas) */
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
         }
-        
+
         .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px var(--glow-primary);
         }
-        
-        .nav-active {
-            color: #ff2e63;
-        }
-        
+
+        /* Botones de división optimizados */
         .division-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .division-btn.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .table-row {
+            position: relative;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.025em;
             transition: all 0.2s ease;
+            background: rgba(26, 26, 58, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            will-change: transform, background;
         }
-        
-        .table-row:hover {
-            background-color: rgba(157, 78, 221, 0.1);
+
+        .division-btn:hover {
+            border-color: var(--accent-1);
+            color: #fff;
+            transform: translateY(-2px);
         }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease-out;
+
+        .division-btn.active {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            border: none;
+            color: white;
+            box-shadow: 0 5px 15px -5px var(--accent-1);
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .table-fade {
-            animation: tableFade 0.5s ease-out;
-        }
-        
-        @keyframes tableFade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
+
+        @media (min-width: 768px) {
+            .division-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
+        }
+
+        /* Tabla optimizada */
+        .standings-table {
+            border-collapse: separate;
+            border-spacing: 0 4px;
+            width: 100%;
+        }
+
+        .standings-table th {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 1rem 1rem;
+            text-align: left;
+        }
+
+        .standings-table td {
+            padding: 1rem 1rem;
+            background: rgba(26, 26, 58, 0.5);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.1);
+            transition: background 0.15s ease;
+        }
+
+        .standings-table tbody tr {
+            transition: background 0.15s ease;
+            cursor: pointer;
+        }
+
+        .standings-table tbody tr:hover td {
+            background: rgba(157, 78, 221, 0.15);
+        }
+
+        /* Badges de posición optimizados */
+        .position-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: transform 0.15s ease;
+        }
+
+        .position-1 {
+            background: linear-gradient(135deg, #ffd966, #ffb347);
+            color: #000;
+        }
+
+        .position-2 {
+            background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
+            color: #000;
+        }
+
+        .position-3 {
+            background: linear-gradient(135deg, #cd7f32, #b87333);
+            color: #fff;
+        }
+
+        .position-promotion {
+            border-left: 3px solid var(--success);
+        }
+
+        .position-relegation {
+            border-left: 3px solid var(--danger);
+        }
+
+        /* Animaciones optimizadas (usando transform) */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.4s ease-out forwards;
+        }
+
+        /* Stats cards optimizadas */
+        .stat-card {
+            background: rgba(26, 26, 58, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-1);
+            transform: translateY(-3px);
+        }
+
+        /* Scrollbar personalizada (opcional, no afecta rendimiento) */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-800);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent-1), var(--accent-2));
+            border-radius: 4px;
+        }
+
+        /* Responsive optimizado */
+        @media (max-width: 768px) {
+            .standings-table th,
+            .standings-table td {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .position-badge {
+                width: 28px;
+                height: 28px;
+                font-size: 0.875rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Optimización para dispositivos táctiles */
+        @media (hover: none) {
+            .card-hover:hover {
+                transform: none;
+            }
+            
+            .standings-table tbody tr:hover td {
+                background: rgba(26, 26, 58, 0.5);
+            }
+        }
+
+        /* Reducir movimiento si el usuario lo prefiere */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
-<body class="dark-gradient">
-    <!-- Navegación -->
-    <nav class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm border-b border-purple-900/30">
-        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
+<body class="antialiased">
+    <!-- Skip to main content para accesibilidad -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent-1 text-white p-4 rounded-lg z-50">
+        Saltar al contenido principal
+    </a>
+
+    <!-- Navegación optimizada -->
+    <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-accent-1/20">
+        <div class="container mx-auto px-4 lg:px-6 py-3 lg:py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
-                        <i class="fas fa-crown text-white text-sm md:text-base"></i>
+                <a href="index.html" class="flex items-center space-x-2 group" aria-label="Liga Glamour - Inicio">
+                    <div class="w-9 h-9 lg:w-10 lg:h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fas fa-crown text-white text-sm lg:text-base" aria-hidden="true"></i>
                     </div>
-                    <a href="index.html" class="font-heading text-xl md:text-2xl font-bold text-white">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></a>
+                    <span class="font-heading text-xl lg:text-2xl font-bold">
+                        <span class="gradient-primary bg-clip-text text-transparent">Liga</span>
+                        <span class="text-white">Glamour</span>
+                    </span>
+                </a>
+                
+                <!-- Navegación desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-white/70 hover:text-white transition-colors relative group">
+                        Inicio
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="divisions.html" class="text-white font-semibold relative group">
+                        Divisiones
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 gradient-primary"></span>
+                    </a>
                 </div>
                 
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.html" class="nav-link text-white hover:text-purple-300 transition">Inicio</a>
-                    <a href="divisions.html" class="nav-link text-white hover:text-purple-300 transition nav-active">Divisiones</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden text-white">
-                    <i class="fas fa-bars text-xl"></i>
+                <!-- Botón menú móvil -->
+                <button id="mobile-menu-button" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition" aria-label="Menú" aria-expanded="false">
+                    <i class="fas fa-bars text-xl" aria-hidden="true"></i>
                 </button>
             </div>
             
             <!-- Menú móvil -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="text-white hover:text-purple-300 transition">Inicio</a>
-                    <a href="divisions.html" class="text-white hover:text-purple-300 transition nav-active">Divisiones</a>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4" aria-hidden="true">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="block px-4 py-3 text-white/70 hover:bg-white/5 rounded-lg transition">Inicio</a>
+                    <a href="divisions.html" class="block px-4 py-3 gradient-primary text-white rounded-lg font-semibold">Divisiones</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Contenido principal -->
-    <main>
-        <!-- Hero Section -->
-        <section class="py-12 md:py-16 bg-gradient-to-b from-purple-900/20 to-transparent">
-            <div class="container mx-auto px-4 md:px-6">
-                <div class="text-center max-w-3xl mx-auto fade-in">
-                    <h1 class="font-heading text-3xl md:text-5xl font-bold mb-4 md:mb-6">
-                        <span class="glamour-gradient bg-clip-text text-transparent">Divisiones</span> Competitivas
+    <main id="main-content">
+        <!-- Hero Section optimizado -->
+        <section class="py-12 lg:py-16 relative overflow-hidden">
+            <!-- Fondo decorativo optimizado (sin blur pesado) -->
+            <div class="absolute inset-0 opacity-30">
+                <div class="absolute top-20 left-20 w-64 h-64 bg-accent-1/20 rounded-full"></div>
+                <div class="absolute bottom-20 right-20 w-64 h-64 bg-accent-2/20 rounded-full"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 lg:px-6 relative">
+                <div class="text-center max-w-3xl mx-auto">
+                    <!-- Badge de temporada -->
+                    <div class="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-accent-1/20 mb-6 animate-slide-up">
+                        <span class="w-2 h-2 rounded-full bg-accent-1"></span>
+                        <span class="text-sm font-semibold tracking-wider text-accent-1">TEMPORADA 2026</span>
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl lg:text-6xl font-bold mb-6 animate-slide-up">
+                        <span class="gradient-primary bg-clip-text text-transparent">Divisiones</span>
+                        <span class="text-white"> Competitivas</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
-                        La Liga Glamour está estructurada en tres divisiones: Primera, Segunda y Tercera División. Cada una con su propio nivel de competitividad.
+                    
+                    <p class="text-lg lg:text-xl text-white/70 mb-8 max-w-2xl mx-auto animate-slide-up">
+                        Cuatro divisiones de alto rendimiento. La élite de Mobile Legends en Argentina compite por la gloria y el ascenso.
                     </p>
                     
-                    <!-- Botones de división -->
-                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-6 md:mb-8">
-                        <button class="division-btn active px-5 md:px-6 py-2 md:py-3 rounded-lg bg-purple-900/40 border border-purple-700/50 text-white font-bold text-sm md:text-base" data-division="first">
-                            Primera División
+                    <!-- Stats rápidas -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-2xl mx-auto mb-10">
+                        <div class="stat-card text-center">
+                            <div class="text-2xl font-bold gradient-primary bg-clip-text text-transparent">48</div>
+                            <div class="text-xs text-white/50">Equipos</div>
+                        </div>
+                        <div class="stat-card text-center">
+                            <div class="text-2xl font-bold gradient-primary bg-clip-text text-transparent">4</div>
+                            <div class="text-xs text-white/50">Divisiones</div>
+                        </div>
+                        <div class="stat-card text-center">
+                            <div class="text-2xl font-bold gradient-primary bg-clip-text text-transparent">144+</div>
+                            <div class="text-xs text-white/50">Jugadores</div>
+                        </div>
+                        <div class="stat-card text-center">
+                            <div class="text-2xl font-bold gradient-primary bg-clip-text text-transparent">$10K</div>
+                            <div class="text-xs text-white/50">Premios</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botones de división optimizados -->
+                    <div class="flex flex-wrap justify-center gap-2 lg:gap-3">
+                        <button class="division-btn active" data-division="first">
+                            <i class="fas fa-crown mr-1 text-sm" aria-hidden="true"></i>
+                            <span>1ª División</span>
                         </button>
-                        <button class="division-btn px-5 md:px-6 py-2 md:py-3 rounded-lg bg-blue-900/40 border border-blue-700/50 text-white font-bold text-sm md:text-base" data-division="second">
-                            Segunda División
+                        <button class="division-btn" data-division="second">
+                            <i class="fas fa-arrow-up mr-1 text-sm" aria-hidden="true"></i>
+                            <span>2ª División</span>
                         </button>
-                        <button class="division-btn px-5 md:px-6 py-2 md:py-3 rounded-lg bg-gray-800/40 border border-gray-700/50 text-white font-bold text-sm md:text-base" data-division="third">
-                            Tercera División
+                        <button class="division-btn" data-division="third">
+                            <i class="fas fa-users mr-1 text-sm" aria-hidden="true"></i>
+                            <span>3ª División</span>
+                        </button>
+                        <button class="division-btn" data-division="fourth">
+                            <i class="fas fa-seedling mr-1 text-sm" aria-hidden="true"></i>
+                            <span>4ª División</span>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tablas de Divisiones -->
-        <section class="py-8 md:py-12 pb-12 md:pb-20">
-            <div class="container mx-auto px-4 md:px-6">
-                <!-- Tabla Primera División (activa por defecto) -->
-                <div id="first-division-table" class="division-table fade-in table-fade">
+        <!-- Tablas de Divisiones optimizadas -->
+        <section class="py-8 lg:py-12 pb-16 lg:pb-24">
+            <div class="container mx-auto px-4 lg:px-6">
+                <!-- Tabla Primera División -->
+                <div id="first-division-table" class="division-table">
                     <div class="mb-8">
-                        <div class="flex items-center mb-4 md:mb-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full glamour-gradient flex items-center justify-center mr-3 md:mr-4">
-                                <i class="fas fa-crown text-white text-lg md:text-xl"></i>
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 lg:gap-4">
+                                <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-crown text-white text-xl lg:text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-heading text-2xl lg:text-3xl font-bold">Primera División</h2>
+                                    <p class="text-white/50 text-sm lg:text-base">La élite - Máxima categoría</p>
+                                </div>
                             </div>
-                            <div>
-                                <h2 class="font-heading text-2xl md:text-3xl font-bold">Primera División</h2>
-                                <p class="text-gray-400 text-sm md:text-base">La élite de la competencia - Máxima categoría</p>
+                            <div class="hidden lg:flex items-center gap-4 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-success"></div>
+                                    <span class="text-white/50">Playoffs</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-danger"></div>
+                                    <span class="text-white/50">Descenso</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="overflow-x-auto rounded-xl border border-purple-900/30 bg-black/40 backdrop-blur-sm">
-                            <table class="w-full">
+                        <div class="overflow-x-auto rounded-xl border border-accent-1/20 bg-black/40">
+                            <table class="standings-table">
                                 <thead>
-                                    <tr class="glamour-gradient">
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Pos</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Equipo</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">J</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">G</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">P</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Puntos</th>
+                                    <tr>
+                                        <th>POS</th>
+                                        <th>EQUIPO</th>
+                                        <th class="text-center">J</th>
+                                        <th class="text-center">G</th>
+                                        <th class="text-center">P</th>
+                                        <th class="text-center">PTS</th>
                                     </tr>
                                 </thead>
                                 <tbody id="first-division-data">
@@ -204,29 +444,41 @@
                     </div>
                 </div>
                 
-                <!-- Tabla Segunda División (oculta por defecto) -->
+                <!-- Tabla Segunda División -->
                 <div id="second-division-table" class="division-table hidden">
                     <div class="mb-8">
-                        <div class="flex items-center mb-4 md:mb-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center mr-3 md:mr-4">
-                                <i class="fas fa-arrow-up text-white text-lg md:text-xl"></i>
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 lg:gap-4">
+                                <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-arrow-up text-white text-xl lg:text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-heading text-2xl lg:text-3xl font-bold">Segunda División</h2>
+                                    <p class="text-white/50 text-sm lg:text-base">División de ascenso</p>
+                                </div>
                             </div>
-                            <div>
-                                <h2 class="font-heading text-2xl md:text-3xl font-bold">Segunda División</h2>
-                                <p class="text-gray-400 text-sm md:text-base">División de ascenso</p>
+                            <div class="hidden lg:flex items-center gap-4 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-success"></div>
+                                    <span class="text-white/50">Ascenso</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-danger"></div>
+                                    <span class="text-white/50">Descenso</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="overflow-x-auto rounded-xl border border-blue-900/30 bg-black/40 backdrop-blur-sm">
-                            <table class="w-full">
+                        <div class="overflow-x-auto rounded-xl border border-blue-500/20 bg-black/40">
+                            <table class="standings-table">
                                 <thead>
-                                    <tr class="bg-gradient-to-r from-blue-600 to-cyan-500">
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Pos</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Equipo</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">J</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">G</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">P</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Puntos</th>
+                                    <tr>
+                                        <th>POS</th>
+                                        <th>EQUIPO</th>
+                                        <th class="text-center">J</th>
+                                        <th class="text-center">G</th>
+                                        <th class="text-center">P</th>
+                                        <th class="text-center">PTS</th>
                                     </tr>
                                 </thead>
                                 <tbody id="second-division-data">
@@ -237,29 +489,41 @@
                     </div>
                 </div>
                 
-                <!-- Tabla Tercera División (oculta por defecto) -->
+                <!-- Tabla Tercera División -->
                 <div id="third-division-table" class="division-table hidden">
                     <div class="mb-8">
-                        <div class="flex items-center mb-4 md:mb-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center mr-3 md:mr-4">
-                                <i class="fas fa-users text-white text-lg md:text-xl"></i>
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 lg:gap-4">
+                                <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-users text-white text-xl lg:text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-heading text-2xl lg:text-3xl font-bold">Tercera División</h2>
+                                    <p class="text-white/50 text-sm lg:text-base">División de desarrollo</p>
+                                </div>
                             </div>
-                            <div>
-                                <h2 class="font-heading text-2xl md:text-3xl font-bold">Tercera División</h2>
-                                <p class="text-gray-400 text-sm md:text-base">División de desarrollo</p>
+                            <div class="hidden lg:flex items-center gap-4 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-success"></div>
+                                    <span class="text-white/50">Ascenso</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-danger"></div>
+                                    <span class="text-white/50">Descenso</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="overflow-x-auto rounded-xl border border-gray-700/30 bg-black/40 backdrop-blur-sm">
-                            <table class="w-full">
+                        <div class="overflow-x-auto rounded-xl border border-gray-500/20 bg-black/40">
+                            <table class="standings-table">
                                 <thead>
-                                    <tr class="bg-gradient-to-r from-gray-600 to-gray-400">
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Pos</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Equipo</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">J</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">G</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">P</th>
-                                        <th class="text-left py-3 md:py-4 px-4 md:px-6 font-bold">Puntos</th>
+                                    <tr>
+                                        <th>POS</th>
+                                        <th>EQUIPO</th>
+                                        <th class="text-center">J</th>
+                                        <th class="text-center">G</th>
+                                        <th class="text-center">P</th>
+                                        <th class="text-center">PTS</th>
                                     </tr>
                                 </thead>
                                 <tbody id="third-division-data">
@@ -269,59 +533,102 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Tabla Cuarta División -->
+                <div id="fourth-division-table" class="division-table hidden">
+                    <div class="mb-8">
+                        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 lg:gap-4">
+                                <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-500 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-seedling text-white text-xl lg:text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-heading text-2xl lg:text-3xl font-bold">Cuarta División</h2>
+                                    <p class="text-white/50 text-sm lg:text-base">Nuevos talentos y promesas</p>
+                                </div>
+                            </div>
+                            <div class="hidden lg:flex items-center gap-4 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-success"></div>
+                                    <span class="text-white/50">Ascenso</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto rounded-xl border border-teal-500/20 bg-black/40">
+                            <table class="standings-table">
+                                <thead>
+                                    <tr>
+                                        <th>POS</th>
+                                        <th>EQUIPO</th>
+                                        <th class="text-center">J</th>
+                                        <th class="text-center">G</th>
+                                        <th class="text-center">P</th>
+                                        <th class="text-center">PTS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="fourth-division-data">
+                                    <!-- Los datos se cargarán con JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Leyenda móvil -->
+                <div class="flex flex-wrap gap-4 justify-center mt-8 lg:hidden text-xs">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-success"></div>
+                        <span class="text-white/50">Ascenso/Playoffs</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-danger"></div>
+                        <span class="text-white/50">Descenso</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black py-8 md:py-12 border-t border-purple-900/30">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full glamour-gradient flex items-center justify-center">
-                            <i class="fas fa-crown text-white text-sm md:text-base"></i>
+    <!-- Footer optimizado -->
+    <footer class="bg-black/50 border-t border-accent-1/20 py-8 lg:py-12">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="text-center lg:text-left">
+                    <div class="flex items-center justify-center lg:justify-start space-x-2 mb-4">
+                        <div class="w-8 h-8 lg:w-10 lg:h-10 rounded-xl gradient-primary flex items-center justify-center">
+                            <i class="fas fa-crown text-white text-sm lg:text-base" aria-hidden="true"></i>
                         </div>
-                        <div class="font-heading text-xl md:text-2xl font-bold text-white">Liga <span class="glamour-gradient bg-clip-text text-transparent">Glamour</span></div>
+                        <span class="font-heading text-xl lg:text-2xl font-bold">
+                            <span class="gradient-primary bg-clip-text text-transparent">Liga</span>
+                            <span class="text-white">Glamour</span>
+                        </span>
                     </div>
-                    <p class="text-gray-400 text-sm md:text-base">La competición de élite de Mobile Legends Bang Bang en Argentina</p>
+                    <p class="text-white/50 text-sm lg:text-base max-w-md">
+                        La competición de élite de Mobile Legends Bang Bang en Argentina
+                    </p>
                 </div>
                 
-                <div class="flex space-x-4 md:space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-twitter text-lg md:text-xl"></i>
+                <div class="flex space-x-4 lg:space-x-6">
+                    <a href="https://www.instagram.com/glamour.ml.oficial" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram text-lg lg:text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-instagram text-lg md:text-xl"></i>
+                    <a href="https://youtube.com/@glamour.ml.oficial" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white transition-colors" aria-label="YouTube">
+                        <i class="fab fa-youtube text-lg lg:text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-youtube text-lg md:text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-twitch text-lg md:text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
-                        <i class="fab fa-discord text-lg md:text-xl"></i>
+                    <a href="https://www.tiktok.com/@liga.glamour" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-white transition-colors" aria-label="TikTok">
+                        <i class="fab fa-tiktok text-lg lg:text-xl" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-800 text-center">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="mb-4 md:mb-0">
-                        <p class="text-gray-500 text-xs md:text-sm">&copy; 2023 Liga Glamour. Todos los derechos reservados.</p>
-                        <p class="text-gray-500 text-xs md:text-sm">Mobile Legends Bang Bang es una marca registrada de Moonton.</p>
-                    </div>
-                    <div class="flex space-x-3 md:space-x-4">
-                        <a href="#" class="text-gray-500 hover:text-gray-300 text-xs md:text-sm transition">Términos y Condiciones</a>
-                        <a href="#" class="text-gray-500 hover:text-gray-300 text-xs md:text-sm transition">Política de Privacidad</a>
-                        <a href="#" class="text-gray-500 hover:text-gray-300 text-xs md:text-sm transition">Contacto</a>
-                    </div>
-                </div>
-            </div>
+ 
         </div>
     </footer>
 
-    <script src="js/div.js"></script>
+
+    
+    <!-- Script de datos (cargado al final) -->
+    <script src="js/div.js" defer></script>
 </body>
 </html>
