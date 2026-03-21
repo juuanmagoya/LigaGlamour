@@ -3,13 +3,13 @@
 // Los points se calculan AUTOMÁTICAMENTE
 const divisionsData = {
     first: [
-        { team: "Pantheon's Black",     played: 3, wins: 2, draws: 1, losses: 0 },
+        { team: "Pantheon's Black",     played: 4, wins: 2, draws: 1, losses: 1},
 
         { team: "Pantheon's Underlock", played: 4, wins: 1, draws: 1, losses: 2 },
 
         { team: "Nikabida",             played: 4, wins: 1, draws: 0, losses: 3 },
 
-        { team: "Squad Fénix",          played: 3, wins: 1, draws: 1, losses: 1 },
+        { team: "Squad Fénix",          played: 4, wins: 2, draws: 1, losses: 1 },
 
         { team: "Fracture Gaming",      played: 4, wins: 2, draws: 0, losses: 2 },
 
@@ -31,9 +31,9 @@ const divisionsData = {
     second: [
         { team: "Night Hunters Rise",   played: 4, wins: 1, draws: 3, losses: 0 },
 
-        { team: "Entity7",              played: 3, wins: 1, draws: 1, losses: 1 },
+        { team: "Entity7",              played: 4, wins: 1, draws: 1, losses: 2 },
 
-        { team: "Fénix Yokai",          played: 3, wins: 3, draws: 0, losses: 0 },
+        { team: "Fénix Yokai",          played: 4, wins: 4, draws: 0, losses: 0 },
 
         { team: "Pantheons Wrath",      played: 4, wins: 2, draws: 2, losses: 0 },
 
@@ -57,9 +57,9 @@ const divisionsData = {
     third: [
         { team: "Kosmos",               played: 4, wins: 3, draws: 1, losses: 0 },
 
-        { team: "Five Furious",         played: 3, wins: 1, draws: 0, losses: 2 },
+        { team: "Five Furious",         played: 4, wins: 2, draws: 0, losses: 2 },
 
-        { team: "Night Hunters Arise",  played: 3, wins: 0, draws: 1, losses: 2 },
+        { team: "Night Hunters Arise",  played: 4, wins: 0, draws: 1, losses: 3 },
 
         { team: "Abyss Of Shadows",     played: 4, wins: 2, draws: 1, losses: 1 },
 
@@ -81,7 +81,7 @@ const divisionsData = {
     ],
     
     fourth: [
-        { team: "Kosmos Gala",          played: 3, wins: 0, draws: 0, losses: 3 },
+        { team: "Kosmos Gala",          played: 4, wins: 0, draws: 0, losses: 4 },
 
         { team: "Silent Oportunity",    played: 4, wins: 2, draws: 2, losses: 0 },
 
@@ -89,13 +89,13 @@ const divisionsData = {
 
         { team: "White Lions",          played: 4, wins: 2, draws: 1, losses: 1 },
 
-        { team: "Harakiri",             played: 3, wins: 2, draws: 1, losses: 0 },
+        { team: "Harakiri",             played: 4, wins: 3, draws: 1, losses: 0 },
 
         { team: "Temperance Beta",      played: 4, wins: 0, draws: 2, losses: 2 },
 
-        { team: "White Lions Fly",      played: 3, wins: 2, draws: 1, losses: 0 },
+        { team: "White Lions Fly",      played: 4, wins: 3, draws: 1, losses: 0 },
 
-        { team: "KAMYKAZEZ",            played: 3, wins: 0, draws: 1, losses: 2 },
+        { team: "KAMYKAZEZ",            played: 4, wins: 0, draws: 1, losses: 3 },
 
         { team: "Argentum",             played: 4, wins: 1, draws: 1, losses: 2 },
 
