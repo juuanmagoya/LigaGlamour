@@ -19,7 +19,7 @@ const divisionsData = {
 
         { team: "Pantheons Pride",      played: 7, wins: 2, draws: 0, losses: 5 },
 
-        { team: "Kosmos Khaos",         played: 4, wins: 1, draws: 1, losses: 0 },
+        { team: "Kosmos Khaos",         played: 4, wins: 3, draws: 1, losses: 0 },
 
         { team: "Sector Z",             played: 6, wins: 5, draws: 1, losses: 0 },
 
@@ -59,8 +59,6 @@ const divisionsData = {
 
         { team: "Five Furious",         played: 7, wins: 3, draws: 1, losses: 3 },
 
-        { team: "Night Hunters Arise",  played: 7, wins: 3, draws: 1, losses: 3 },
-
         { team: "Abyss Of Shadows",     played: 7, wins: 3, draws: 1, losses: 3 },
 
         { team: "Kings Slayers",        played: 7, wins: 1, draws: 1, losses: 5 },
@@ -71,7 +69,7 @@ const divisionsData = {
 
         { team: "Octa Gaming",         played: 8, wins: 4, draws: 0, losses: 4 },
 
-        { team: "Kinshi",               played: 4, wins: 2, draws: 0, losses: 2 },
+        { team: "Kinshi",               played: 6, wins: 3, draws: 0, losses: 3 },
 
         { team: "Beastmode",            played: 7, wins: 6, draws: 0, losses: 1 },
 
