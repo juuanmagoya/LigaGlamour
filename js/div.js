@@ -3,101 +3,101 @@
 // Los points se calculan AUTOMÁTICAMENTE
 const divisionsData = {
     first: [
-        { team: "Pantheon's Black",     played: 7, wins: 3, draws: 2, losses: 2 },
+        { team: "Pantheon's Black",     played: 9, wins: 3, draws: 2, losses: 4 },
 
-        { team: "Pantheon's Underlock", played: 7, wins: 2, draws: 1, losses: 4 },
+        { team: "Pantheon's Underlock", played: 8, wins: 3, draws: 1, losses: 4 },
 
-        { team: "Nikabida",             played: 7, wins: 1, draws: 1, losses: 5 },
+        { team: "Nikabida",             played: 9, wins: 3, draws: 1, losses: 5 },
 
-        { team: "Squad Fénix",          played: 7, wins: 5, draws: 1, losses: 1 },
+        { team: "Squad Fénix",          played: 9, wins: 7, draws: 1, losses: 1 },
 
-        { team: "Fracture Gaming",      played: 7, wins: 3, draws: 2, losses: 2 },
+        { team: "Fracture Gaming",      played: 8, wins: 3, draws: 2, losses: 3 },
 
-        { team: "Fénix Rawr",           played: 7, wins: 0, draws: 0, losses: 7 },
+        { team: "Fénix Rawr",           played: 9, wins: 0, draws: 0, losses: 9 },
 
-        { team: "Night Hunters",        played: 7, wins: 4, draws: 1, losses: 2 },
+        { team: "Night Hunters",        played: 9, wins: 4, draws: 1, losses: 4 },
 
-        { team: "Pantheons Pride",      played: 7, wins: 2, draws: 0, losses: 5 },
+        { team: "Pantheons Pride",      played: 8, wins: 3, draws: 0, losses: 5 },
 
-        { team: "Kosmos Khaos",         played: 4, wins: 3, draws: 1, losses: 0 },
+        { team: "Kosmos Khaos",         played: 9, wins: 8, draws: 1, losses: 0 },
 
-        { team: "Sector Z",             played: 6, wins: 5, draws: 1, losses: 0 },
+        { team: "Sector Z",             played: 9, wins: 7, draws: 1, losses: 1 },
 
-        { team: "Eleven Starboy",       played: 7, wins: 2, draws: 0, losses: 5 },
+        { team: "Eleven Starboy",       played: 9, wins: 2, draws: 0, losses: 7 },
 
-        { team: "Exilium One",          played: 7, wins: 4, draws: 0, losses: 3 }
+        { team: "Exilium One",          played: 8, wins: 4, draws: 0, losses: 4 }
     ],
 
     second: [
-        { team: "Night Hunters Rise",   played: 7, wins: 1, draws: 0, losses: 6 },
+        { team: "Night Hunters Rise",   played: 9, wins: 1, draws: 0, losses: 8 },
 
-        { team: "Entity7",              played: 7, wins: 3, draws: 2, losses: 2 },
+        { team: "Entity7",              played: 9, wins: 4, draws: 3, losses: 2 },
 
-        { team: "Fénix Yokai",          played: 7, wins: 6, draws: 1, losses: 0 },
+        { team: "Fénix Yokai",          played: 8, wins: 7, draws: 1, losses: 0 },
 
-        { team: "Pantheons Wrath",      played: 7, wins: 4, draws: 2, losses: 1 },
+        { team: "Pantheons Wrath",      played: 8, wins: 5, draws: 2, losses: 1 },
 
-        { team: "Pantheons Eclipse",    played: 7, wins: 2, draws: 0, losses: 5 },
+        { team: "Pantheons Eclipse",    played: 9, wins: 2, draws: 0, losses: 7 },
 
-        { team: "Exilium Tatsu",        played: 7, wins: 4, draws: 2, losses: 1 },
+        { team: "Exilium Tatsu",        played: 8, wins: 4, draws: 2, losses: 2 },
 
-        { team: "Shohoku Stars",        played: 7, wins: 6, draws: 0, losses: 1 },
+        { team: "Shohoku Stars",        played: 8, wins: 6, draws: 1, losses: 1 },
 
-        { team: "WoW Esports",          played: 7, wins: 3, draws: 1, losses: 3 },
+        { team: "WoW Esports",          played: 9, wins: 4, draws: 1, losses: 4 },
 
-        { team: "Synergy",              played: 7, wins: 5, draws: 1, losses: 1 },
+        { team: "Synergy",              played: 9, wins: 7, draws: 1, losses: 1 },
 
-        { team: "King Kao",             played: 7, wins: 0, draws: 0, losses: 7 },
+        { team: "King Kao",             played: 9, wins: 1, draws: 0, losses: 8 },
 
-        { team: "S2 Showmatch",         played: 7, wins: 1, draws: 1, losses: 7 },
+        { team: "S2 Showmatch",         played: 9, wins: 0, draws: 0, losses: 9 },
 
-        { team: "Agni Kai Esports",     played: 7, wins: 3, draws: 1, losses: 3 }
+        { team: "Agni Kai Esports",     played: 9, wins: 5, draws: 1, losses: 3 }
     ],
 
     third: [
-        { team: "Kosmos",               played: 8, wins: 5, draws: 3, losses: 0 },
+        { team: "Kosmos",               played: 9, wins: 6, draws: 3, losses: 0 },
 
-        { team: "Five Furious",         played: 7, wins: 3, draws: 1, losses: 3 },
+        { team: "Five Furious",         played: 8, wins: 3, draws: 1, losses: 4 },
 
-        { team: "Abyss Of Shadows",     played: 7, wins: 3, draws: 1, losses: 3 },
+        { team: "Abyss Of Shadows",     played: 9, wins: 4, draws: 2, losses: 3 },
 
-        { team: "Kings Slayers",        played: 7, wins: 1, draws: 1, losses: 5 },
+        { team: "Kings Slayers",        played: 10, wins: 3, draws: 1, losses: 6 },
 
-        { team: "Exilium Kings",        played: 7, wins: 0, draws: 1, losses: 6 },
+        { team: "Exilium Kings",        played: 10, wins: 1, draws: 2, losses: 7 },
 
-        { team: "Misty Haze",           played: 7, wins: 5, draws: 1, losses: 1 },
+        { team: "Misty Haze",           played: 9, wins: 7, draws: 1, losses: 1 },
 
         { team: "Octa Gaming",         played: 8, wins: 4, draws: 0, losses: 4 },
 
-        { team: "Kinshi",               played: 6, wins: 3, draws: 0, losses: 3 },
+        { team: "Kinshi",               played: 9, wins: 3, draws: 0, losses: 6 },
 
-        { team: "Beastmode",            played: 7, wins: 6, draws: 0, losses: 1 },
+        { team: "Beastmode",            played: 9, wins: 8, draws: 0, losses: 1 },
 
-        { team: "Nexus Prime",          played: 7, wins: 5, draws: 1, losses: 1 },
+        { team: "Nexus Prime",          played: 9, wins: 6, draws: 1, losses: 2 },
 
-        { team: "Backtime",             played: 7, wins: 0, draws: 0, losses: 7 }
+        { team: "Backtime",             played: 9, wins: 0, draws: 0, losses: 9 }
     ],
     
     fourth: [
-        { team: "Kosmos Gala",          played: 6, wins: 1, draws: 0, losses: 5 },
+        { team: "Kosmos Gala",          played: 9, wins: 3, draws: 1, losses: 5 },
 
-        { team: "Silent Oportunity",    played: 7, wins: 5, draws: 2, losses: 0 },
+        { team: "Silent Oportunity",    played: 9, wins: 7, draws: 2, losses: 0 },
 
-        { team: "Exilium Reign",        played: 7, wins: 2, draws: 1, losses: 4 },
+        { team: "Exilium Reign",        played: 9, wins: 4, draws: 0, losses: 5 },
 
-        { team: "White Lions",          played: 7, wins: 4, draws: 1, losses: 2 },
+        { team: "White Lions",          played: 9, wins: 6, draws: 1, losses: 2 },
 
-        { team: "Harakiri",             played: 7, wins: 6, draws: 1, losses: 0 },
+        { team: "Harakiri",             played: 9, wins: 8, draws: 1, losses: 0 },
 
-        { team: "Temperance Beta",      played: 7, wins: 2, draws: 0, losses: 5 },
+        { team: "Temperance Beta",      played: 9, wins: 2, draws: 2, losses: 5 },
 
-        { team: "White Lions Fly",      played: 7, wins: 4, draws: 2, losses: 1 },
+        { team: "White Lions Fly",      played: 9, wins: 0, draws: 0, losses: 9 },
 
-        { team: "KAMYKAZEZ",            played: 6, wins: 0, draws: 1, losses: 5 },
+        { team: "KAMYKAZEZ",            played: 9, wins: 1, draws: 1, losses: 7 },
 
-        { team: "Argentum",             played: 7, wins: 3, draws: 1, losses: 3 },
+        { team: "Argentum",             played: 9, wins: 5, draws: 2, losses: 3 },
 
-        { team: "M7",                   played: 7, wins: 3, draws: 1, losses: 3 },
+        { team: "M7",                   played: 9, wins: 4, draws: 0, losses: 5 },
     ]
 };
 
